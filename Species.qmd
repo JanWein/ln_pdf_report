@@ -1,0 +1,18 @@
+## `r i`
+
+There are `r data %>% count(species) %>% filter(species == i) %>% pull()` penguins of species `r i`.
+
+```{r echo=FALSE, warning=FALSE, results="asis"}
+
+data %>% 
+  filter(species == i) %>% 
+  ggplot(aes(x=bill_length_mm,y=bill_depth_mm,color=body_mass_g,size=flipper_length_mm,shape =as_factor(year))) +
+  geom_point() +
+  theme_bw() +
+  facet_grid(island~sex) +
+  theme(legend.position="bottom") +
+  ggtitle(i)
+  
+```
+
+\newpage

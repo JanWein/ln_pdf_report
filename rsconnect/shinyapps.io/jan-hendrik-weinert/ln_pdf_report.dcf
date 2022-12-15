@@ -1,0 +1,13 @@
+name: ln_pdf_report
+title: ln_pdf_report
+username:
+account: jan-hendrik-weinert
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7892444
+bundleId: 6640120
+url: https://jan-hendrik-weinert.shinyapps.io/ln_pdf_report/
+when: 1671109387.48412
+lastSyncTime: 1671109387.48413
+asMultiple: FALSE
+asStatic: FALSE

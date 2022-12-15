@@ -1,0 +1,43 @@
+---
+title: "Penguins Report"
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+params:
+  species:
+    value: [Adelie, Chinstrap, Gentoo]
+  island:
+    value: [Biscoe, Dream, Torgersen]
+  sex:
+    value: [female, male]
+classoption: landscape
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+
+library(palmerpenguins) 
+library(tidyverse)
+data <- penguins
+```
+\newpage
+
+
+```{r species, results="asis",echo=FALSE,warning=FALSE}
+
+if (length(params$species)==0) {cat("")} else {cat("# By Species","\n")}
+for(i in params$species) {
+  cat(knitr::knit_child("Species.rmd", quiet = TRUE),
+          "\n\n")}
+
+if (length(params$island)==0) {cat("")} else {cat("# By Island","\n")}
+for(j in params$island) {
+  cat(knitr::knit_child("Island.rmd", quiet = TRUE),
+          "\n\n")}
+
+if (length(params$sex)==0) {cat("")} else {cat("# By Sex","\n")}
+for(k in params$sex) {
+  cat(knitr::knit_child("Sex.rmd", quiet = TRUE),
+          "\n\n")}
+```

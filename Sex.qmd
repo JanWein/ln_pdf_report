@@ -1,0 +1,18 @@
+## `r k`
+
+There are `r data %>% count(sex) %>% filter(sex == k) %>% pull()` penguins of sex `r k`.
+
+```{r echo=FALSE, fig.height=5, fig.width=10, warning=FALSE, results="asis"}
+
+data %>% 
+  filter(sex == k) %>% 
+  ggplot(aes(x=bill_length_mm,y=bill_depth_mm,color=body_mass_g,size=flipper_length_mm,shape =as_factor(year))) +
+  geom_point() +
+  theme_bw() +
+  facet_grid(species~island) +
+  theme(legend.position="bottom") +
+  ggtitle(k)
+  
+```
+
+\newpage
